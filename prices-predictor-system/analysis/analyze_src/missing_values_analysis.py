@@ -88,6 +88,8 @@ class SimpleMissingValuesAnalysis(MissingValuesAnalysisStrategy):
 #Example usage
 
 if __name__ == "__main__":
-    df = pd.read_csv(r"C:\Users\rohit\VSCode\End_to_End_Production_Project\prices-predictor-system\extracted_data\AmesHousing.csv")
-    strategy = SimpleMissingValuesAnalysis()
-    strategy.analyze(df)
+    # df = pd.read_csv(r"C:\Users\rohit\VSCode\End_to_End_Production_Project\prices-predictor-system\extracted_data\AmesHousing.csv")
+    # strategy = SimpleMissingValuesAnalysis()
+    # strategy.analyze(df)
+    pass
+
