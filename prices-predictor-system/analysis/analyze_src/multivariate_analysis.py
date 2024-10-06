@@ -47,7 +47,7 @@ class MultivariateAnalysisStrategy(ABC):
 # Concrete Class for Multivariate Analysis with Correlation Heatmap and Pair Plot
 # -------------------------------------------------------------------------------
 # This class implements the methods to generate a correlation heatmap and a pair plot.
-class SimpleMultivariateAnalysis(MultivariateAnalysisTemplate):
+class SimpleMultivariateAnalysis(MultivariateAnalysisStrategy):
     def generate_correlation_heatmap(self, df: pd.DataFrame):
         """
         Generates and displays a correlation heatmap for the numerical features in the dataframe.
