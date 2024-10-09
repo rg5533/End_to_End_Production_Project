@@ -1,5 +1,6 @@
 from steps.data_ingestion_step import data_ingestion_step
 from steps.handle_missing_values_step import handle_missing_values_step
+from steps.feature_engineering_step import feature_engineering_step
 from zenml import pipeline, step, Model
 
 
@@ -22,8 +23,11 @@ def ml_pipeline():
     filled_data = handle_missing_values_step(df=raw_data)
 
     #Feature engineering step
-
-
+    engineered_data = feature_engineering_step(
+        df=filled_data, strategy="log",
+        features=["SalePrice", "Gr Liv Area"]
+        )
+    
     #Outlier detection step
 
 
