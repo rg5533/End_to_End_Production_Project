@@ -6,7 +6,7 @@ import pandas as pd
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 #Abstract class for handling missing values
-class MissingValuesHandler(ABC):
+class MissingValueHandlingStrategy(ABC):
     @abstractmethod
     def handle(self, df: pd.DataFrame) -> pd.DataFrame:
         """
@@ -20,7 +20,7 @@ class MissingValuesHandler(ABC):
     
 
 #Concrete class for handling missing values by imputation
-class DropMissingValuesStrategy(MissingValuesHandler):
+class DropMissingValuesStrategy(MissingValueHandlingStrategy):
     def __init__(self, axis=0, thresh=None):
         """Initialize the DropMissingValuesStrategy with specified axis and threshold.
         """
@@ -37,7 +37,7 @@ class DropMissingValuesStrategy(MissingValuesHandler):
         return df_cleaned
 
 #Concrete Startegy for Filling Missing Values
-class FillMissingValuesStrategy(MissingValuesHandler):
+class FillMissingValuesStrategy(MissingValueHandlingStrategy):
     def __init__(self, method: str = 'mean', fill_value=None):
         """Initialize the FillMissingValuesStrategy with specified strategy.
         """
@@ -74,12 +74,12 @@ class FillMissingValuesStrategy(MissingValuesHandler):
             
 # Context Class for Handling Missing Values
 class MissingValueHandler:
-    def __init__(self, strategy: MissingValuesHandler):
+    def __init__(self, strategy: MissingValueHandlingStrategy):
         """Initialize the MissingValueHandler with a strategy.
         """
         self._strategy = strategy
 
-    def set_strategy(self, strategy: MissingValuesHandler):
+    def set_strategy(self, strategy: MissingValueHandlingStrategy):
         """Set the strategy for handling missing values.
         """
         logging.info("Switching missing value handling strategy.")

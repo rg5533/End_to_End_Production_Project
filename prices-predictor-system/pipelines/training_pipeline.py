@@ -1,4 +1,5 @@
 from steps.data_ingestion_step import data_ingestion_step
+from steps.handle_missing_values_step import handle_missing_values_step
 from zenml import pipeline, step, Model
 
 
@@ -18,7 +19,7 @@ def ml_pipeline():
     )
 
     #Handle missing values step
-
+    filled_data = handle_missing_values_step(df=raw_data)
 
     #Feature engineering step
 

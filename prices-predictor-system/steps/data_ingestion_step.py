@@ -10,6 +10,5 @@ def data_ingestion_step(file_path: str) -> pd.DataFrame:
     #get the file extension
     file_extension = ".zip"
     ingestor = DataIngestorFactory.get_data_ingestor(file_extension)
-    df = ingestor.ingest_data(file_path)
+    df = ingestor.ingest(file_path)
     return df
-
