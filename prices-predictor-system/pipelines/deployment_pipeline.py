@@ -10,6 +10,7 @@ from zenml.integrations.mlflow.steps import mlflow_model_deployer_step
 
 requirements_file = os.path.join(os.path.dirname(__file__), "requirements.txt")
 
+
 @pipeline
 def continuous_deployment_pipeline():
     """Run a training job and deploy an MLflow model deployment."""
